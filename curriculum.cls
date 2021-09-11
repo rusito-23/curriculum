@@ -75,7 +75,7 @@
 }
 
 %-------------------------------------------------------------------------------
-%   HEADER
+%   HEADER ENVIRONMENTS
 %-------------------------------------------------------------------------------
 
 % Define an environment for the curriculum header
@@ -84,6 +84,10 @@
 }{
     \end{center}
 }
+
+%-------------------------------------------------------------------------------
+%   HEADER COMMANDS
+%-------------------------------------------------------------------------------
 
 % Create the header
 % The header will be made up of three titles and social info:
@@ -100,23 +104,12 @@
 }
 
 %-------------------------------------------------------------------------------
-%   SECTION
+%   SECTION COMMANDS
 %-------------------------------------------------------------------------------
 
 % Create a horizontal separator that takes the text width
 \DeclareRobustCommand*{\separator}{
     \noindent\hrule width \textwidth
-}
-
-% Define an environment for the curriculum sections
-% Automatically displays the separator and aligns the text
-% Parameter: Section Title
-\newenvironment{cvsection}[1]{
-    \separator
-    \begin{flushleft}
-    \LARGE{#1}
-}{
-    \end{flushleft}
 }
 
 % Create a section item header
@@ -129,9 +122,24 @@
     \hfill
     \large{#2}
 
-    \large{#3}
+    \large{\textit{#3}}
     \hfill
     \large{#4}
+}
+
+%-------------------------------------------------------------------------------
+%   SECTION ENVIRONMENTS
+%-------------------------------------------------------------------------------
+
+% Define an environment for the curriculum sections
+% Automatically displays the separator and aligns the text
+% Parameter: Section Title
+\newenvironment{cvsection}[1]{
+    \separator
+    \begin{flushleft}
+    \LARGE{#1}
+}{
+    \end{flushleft}
 }
 
 % Define an environment for section item list
@@ -152,3 +160,4 @@
     \end{sectionitemlist}
     \end{multicols}
 }
+
