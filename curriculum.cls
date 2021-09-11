@@ -22,19 +22,28 @@
 
 \RequirePackage[margin=0.5in]{geometry}
 \RequirePackage{fontspec}
+\RequirePackage{textcomp}
 \RequirePackage{graphicx}
 \RequirePackage{setspace}
 \RequirePackage{enumitem}
 \RequirePackage{multicol}
 \RequirePackage{relsize}
+\RequirePackage[hidelinks]{hyperref}
+\RequirePackage{xcolor}
+\RequirePackage[semibold]{libertine}
 
 %-------------------------------------------------------------------------------
-%   DEFINITIONS
+%   GENERAL SETUP
 %-------------------------------------------------------------------------------
 
-\setmainfont{Avenir}                        % Use a consistent font
-\renewcommand\labelitemi{\tiny$\bullet$}    % Always use tiny bullets
-\setlength\multicolsep{0pt}                 % Consistent spacing for multi columns
+% Set up main font
+\setmainfont
+    [BoldFont = {Avenir Next Demi Bold}]
+    {Avenir Next}
+
+\renewcommand\labelitemi{\tiny$\bullet$}           % Tiny bullets
+\setlength\multicolsep{0pt}                        % Consistent spacing for multi columns
+\hypersetup{colorlinks, urlcolor={blue!50!black}}  % Consistent URL colors
 
 %-------------------------------------------------------------------------------
 %   ICONS
@@ -49,19 +58,19 @@
 
 % GitHub, takes username as parameter
 \DeclareRobustCommand*{\github}[1]{%
-    \large{github.com/#1}
+    \href{http://www.github.com/#1}{\large{github.com/#1}}
     \Large{\icon{github}}
 }
 
 % Display Email, takes full email as parameter
 \DeclareRobustCommand*{\email}[1]{%
-    \large{#1}
+    \href{mailto:#1}{\large{#1}}
     \Large{\icon{email}}
 }
 
 % Display LinkedIn, takes username as parameter
 \DeclareRobustCommand*{\linkedin}[1]{%
-    \large{linkedin.com/in/#1}
+    \href{http://www.linkedin.com/in/#1}{\large{linkedin.com/in/#1}}
     \Large{\icon{linkedin}}
 }
 
@@ -114,21 +123,19 @@
 % Will be made up of two headings:
 % Title ---------------------------------- Extra Info
 % Subtitle ------------------------------- Extra Info
-% - Item 1)
-% - Item 2)
-% - ...
 \DeclareRobustCommand*{\makesectionitemheader}[4]{
     \vspace{1.5ex}
     \Large{#1}
     \hfill
-    \normalsize{#2}
+    \large{#2}
 
     \large{#3}
     \hfill
-    \normalsize{#4}
+    \large{#4}
 }
 
 % Define an environment for section item list
+% Sets the font and customizes the itemize margins and spacings
 \newenvironment{sectionitemlist}{
     \large
     \begin{itemize}[noitemsep, leftmargin=*, topsep=0.5em]
