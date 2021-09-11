@@ -32,14 +32,19 @@
 \RequirePackage{xcolor}
 \RequirePackage[semibold]{libertine}
 
+
 %-------------------------------------------------------------------------------
 %   GENERAL SETUP
 %-------------------------------------------------------------------------------
 
-% Set up main font
-\setmainfont
-    [BoldFont = {Avenir Next Demi Bold}]
-    {Avenir Next}
+% Set up font
+\setmainfont[
+    Path = fonts/,
+    UprightFont = *-Regular,
+    BoldFont = *-Demi,
+    ItalicFont = *-It,
+    Scale = MatchLowercase
+]{AvenirNextLTPro}
 
 \renewcommand\labelitemi{\tiny$\bullet$}           % Tiny bullets
 \setlength\multicolsep{0pt}                        % Consistent spacing for multi columns

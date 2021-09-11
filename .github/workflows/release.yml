@@ -1,0 +1,37 @@
+# Create a new curriculum release
+name: Release
+
+# Every time there's a push to the main branch
+on:
+  push:
+    branches:
+      - main
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@master
+        with:
+          root_file: curriculum.tex
+          args: -xelatex -file-line-error -interaction=nonstopmode -shell-escape
+
+      - name: Commit to orphan branch
+        run: |
+          git checkout --orphan release/curriculum
+          mv curriculum.pdf Igor_Andruskiewitsch.pdf
+          git rm -rf .
+          echo "# Curriculum Vitae" > README.md
+          git add Igor_Andruskiewitsch.pdf README.md
+          git -c user.name='GitHub Action' -c user.email='action@github.com' commit -m "Release curriculum"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: release/curriculum
+          force: true

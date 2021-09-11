@@ -21,3 +21,5 @@
 ## Mac OS X metadata files:
 *.DS_Store
 
+# Ignore the main PDF
+curriculum.pdf
