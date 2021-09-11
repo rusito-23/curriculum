@@ -124,7 +124,7 @@
 % Title ---------------------------------- Extra Info
 % Subtitle ------------------------------- Extra Info
 \DeclareRobustCommand*{\makesectionitemheader}[4]{
-    \vspace{1.5ex}
+    \vspace{0.5ex}
     \Large{#1}
     \hfill
     \large{#2}
@@ -138,7 +138,7 @@
 % Sets the font and customizes the itemize margins and spacings
 \newenvironment{sectionitemlist}{
     \large
-    \begin{itemize}[noitemsep, leftmargin=*, topsep=0.5em]
+    \begin{itemize}[noitemsep, leftmargin=*, topsep=0.5ex]
 }{
     \end{itemize}
     \reset@font
