@@ -5,7 +5,7 @@ SRC = curriculum.tex
 DST = curriculum.pdf
 OUT = *.out *.log *.aux *.gz
 
-all: build
+all: open
 
 build:
 	$(CC) $(SRC)
