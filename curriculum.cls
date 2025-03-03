@@ -20,7 +20,7 @@
 %   PACKAGES
 %-------------------------------------------------------------------------------
 
-\RequirePackage[margin=0.5in]{geometry}
+\RequirePackage[margin=0.3in]{geometry}
 \RequirePackage{fontspec}
 \RequirePackage{textcomp}
 \RequirePackage{graphicx}
@@ -145,6 +145,17 @@
     \LARGE{#1}
 }{
     \end{flushleft}
+}
+
+% Define an environment for the summary
+% Sets the font and customizes margins and spacings
+\newenvironment{summary}{
+    \par
+    \large
+    \vspace{1pt}
+    \linespread{0.5}
+}{
+    \par
 }
 
 % Define an environment for section item list
